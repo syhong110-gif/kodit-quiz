@@ -109,7 +109,7 @@
         buttons.forEach(btn => btn.disabled = true);
 
         if (selected === correct) {
-            resultDiv.innerHTML = "<span class='success'>🎉 성공! 정답입니다.</span><div style='font-size:0.85em; font-weight:normal; color:#666; margin-top:8px;'>훌륭합니다! 다음 문제에도 도전해보세요.</div>";
+            resultDiv.innerHTML = "<span class='success'>🎉 성공! 정답입니다.</span><div style='font-size:0.85em; font-weight:normal; color:#666; margin-top:8px;'>이제 스태프에게 이 화면을 보여주고 신보 한정판 굿즈 뽑기에 도전하세요!.</div>";
             optionsContainer.style.opacity = "0.5";
         } else {
             resultDiv.innerText = `❌ 실패! 정답은 ${correct + 1}번입니다.`;
