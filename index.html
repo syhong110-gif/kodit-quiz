@@ -5,15 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KODIT 퀴즈 챌린지</title>
     <style>
-        body { font-family: 'Pretendard', -apple-system, sans-serif; text-align: center; padding: 50px 20px; background-color: #f4f7fa; color: #333; }
-        .quiz-container { background: white; padding: 30px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); display: inline-block; max-width: 450px; width: 100%; box-sizing: border-box; }
-        h2 { color: #005bac; margin-bottom: 25px; font-size: 1.5em; }
-        .question { font-size: 1.15em; font-weight: 600; margin-bottom: 25px; line-height: 1.5; word-break: keep-all; min-height: 60px; }
-        .btn-group { display: flex; flex-direction: column; gap: 12px; }
-        button { padding: 15px; font-size: 1em; cursor: pointer; border: 2px solid #f0f0f0; border-radius: 12px; background: #fff; transition: all 0.2s; font-weight: 500; }
+        body { font-family: 'Pretendard', -apple-system, sans-serif; text-align: center; padding: 30px 20px; background-color: #f4f7fa; color: #333; }
+        .quiz-container { background: white; padding: 30px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); display: inline-block; max-width: 500px; width: 100%; box-sizing: border-box; }
+        .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+        .difficulty-badge { padding: 4px 10px; border-radius: 20px; font-size: 0.8em; font-weight: bold; text-transform: uppercase; }
+        .easy { background: #e3f2fd; color: #1976d2; }
+        .medium { background: #fff3e0; color: #f57c00; }
+        .hard { background: #fbe9e7; color: #d84315; }
+        h2 { color: #005bac; margin: 10px 0; font-size: 1.4em; }
+        .question { font-size: 1.1em; font-weight: 600; margin-bottom: 25px; line-height: 1.6; word-break: keep-all; min-height: 80px; text-align: left; }
+        .btn-group { display: flex; flex-direction: column; gap: 10px; }
+        button { padding: 14px; font-size: 0.95em; cursor: pointer; border: 2px solid #f0f0f0; border-radius: 12px; background: #fff; transition: all 0.2s; font-weight: 500; text-align: left; line-height: 1.4; }
         button:not(:disabled):hover { background: #f0f7ff; border-color: #005bac; color: #005bac; }
         button:disabled { cursor: default; opacity: 0.7; }
-        #result { margin-top: 25px; font-weight: bold; font-size: 1.3em; min-height: 1.5em; }
+        #result { margin-top: 25px; font-weight: bold; font-size: 1.2em; min-height: 1.6em; }
         .success { color: #28a745; }
         .failure { color: #dc3545; }
     </style>
@@ -21,6 +26,10 @@
 <body>
 
 <div class="quiz-container">
+    <div class="header">
+        <span id="diff-tag" class="difficulty-badge">LEVEL</span>
+        <span style="font-size: 0.8em; color: #999;">KODIT 50th Anniversary</span>
+    </div>
     <h2>KODIT 퀴즈 챌린지</h2>
     <div id="quiz-content">
         <div class="question" id="question-text">문제를 불러오는 중...</div>
@@ -31,76 +40,10 @@
 
 <script>
     const quizData = [
-        {
-            q: "Q1. 신용보증기금은 올해로 창립 몇 주년을 맞이할까요?",
-            options: ["30년", "40년", "50년"],
-            answer: 2 // 3번
-        },
-        {
-            q: "Q2. '스타트업 지원'을 담당하며, 가장 먼저 용감하게 도전하는 캐릭터는 누구일까요?",
-            options: ["보니", "코디", "그링"],
-            answer: 0 // 1번
-        },
-        {
-            q: "Q3. 기업의 꿈을 알록달록하게 그려주는 '신용보증기금'의 메인 마스코트이자 드래곤 캐릭터의 이름은?",
-            options: ["크레용", "코디", "서피"],
-            answer: 0 // 1번
-        }
-    ];
-
-    let currentQuestionIndex = -1;
-
-    function loadQuiz() {
-        const resultDiv = document.getElementById('result');
-        resultDiv.innerText = "";
-        resultDiv.className = "";
-
-        // 이전 문제와 중복되지 않게 새로운 랜덤 문제 선택
-        let nextIndex;
-        do {
-            nextIndex = Math.floor(Math.random() * quizData.length);
-        } while (nextIndex === currentQuestionIndex && quizData.length > 1);
-        
-        currentQuestionIndex = nextIndex;
-        const currentQuiz = quizData[currentQuestionIndex];
-
-        document.getElementById('question-text').innerText = currentQuiz.q;
-        const optionsContainer = document.getElementById('options-container');
-        optionsContainer.innerHTML = "";
-        optionsContainer.style.opacity = "1";
-
-        currentQuiz.options.forEach((opt, index) => {
-            const btn = document.createElement('button');
-            btn.innerText = `${index + 1}. ${opt}`;
-            btn.onclick = () => checkAnswer(index, currentQuiz.answer);
-            optionsContainer.appendChild(btn);
-        });
-    }
-
-    function checkAnswer(selected, correct) {
-        const resultDiv = document.getElementById('result');
-        const optionsContainer = document.getElementById('options-container');
-        const buttons = optionsContainer.querySelectorAll('button');
-        
-        // 클릭 시 모든 버튼 비활성화
-        buttons.forEach(btn => btn.disabled = true);
-
-        if (selected === correct) {
-            // [성공] 멈춤
-            resultDiv.innerHTML = "<span class='success'>🎉 성공!</span><div style='font-size:0.8em; font-weight:normal; color:#666; margin-top:5px;'>축하합니다! 미션을 완료했습니다.</div>";
-            optionsContainer.style.opacity = "0.5";
-        } else {
-            // [실패] 정답 안내 후 1초 뒤 다음 문제로 이동
-            resultDiv.innerText = `❌ 실패! 정답은 ${correct + 1}번입니다.`;
-            resultDiv.className = "failure";
-            
-            setTimeout(loadQuiz, 1000); 
-        }
-    }
-
-    // 시작
-    window.onload = loadQuiz;
-</script>
-
-</body>
-</html>
+        {"id": 1, "difficulty": "easy", "question": "신용보증기금은 2026년 올해로 창립 몇 주년을 맞이할까요?", "options": ["30주년", "40주년", "50주년", "60주년"], "answerIndex": 2},
+        {"id": 2, "difficulty": "easy", "question": "\"약속할게, 너의 밝은 미래를!\"이라는 슬로건과 함께 활기찬 기운으로 신용보증 업무를 담당하는 캐릭터는?", "options": ["코디", "서피", "포포", "보니"], "answerIndex": 0},
+        {"id": 3, "difficulty": "easy", "question": "스타트업의 성장주기에 맞춘 육성 프로그램을 지원하며, 용기 있게 먼저 도전하는 '퍼스트펭귄'을 상징하는 캐릭터는?", "options": ["든든해", "그링", "보니", "크레용"], "answerIndex": 2},
+        {"id": 4, "difficulty": "easy", "question": "예측하지 못한 보험사고로부터 기업의 재산을 든든하게 지켜주는 '신용보험' 업무를 담당하는 사자 캐릭터의 이름은?", "options": ["포포", "든든해", "서피", "코디"], "answerIndex": 0},
+        {"id": 5, "difficulty": "easy", "question": "환경을 최우선으로 생각하며 녹색 기업에 정책 자금을 지원하고 탄소중립 전환을 돕는 ‘그린파이낸싱’ 캐릭터의 이름은?", "options": ["그링", "보니", "크레용", "서피"], "answerIndex": 0},
+        {"id": 6, "difficulty": "easy", "question": "똑똑한 문어 컨설턴트로서 멀티태스킹 능력을 발휘해 기업에 다양한 경영지원 서비스를 제공하는 캐릭터는?", "options": ["코디", "포포", "든든해", "서피"], "answerIndex": 3},
+        {"id": 7, "difficulty": "easy", "question": "듬직하고 포근한 비버의 모습으로 안정적인
