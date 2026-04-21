@@ -112,7 +112,7 @@
         btns.forEach(b => b.disabled = true);
 
         if (sel === cor) {
-            resDiv.innerHTML = "<span class='success'>🎉 성공! 정답입니다.</span><br><div style='font-size:0.85em; font-weight:normal; color:#666; margin-top:8px;'>스태프에게 코인을 받은 후<br><b>신보 한정판 굿즈 뽑기</b>를 하세요! 🎁</div>";
+            resDiv.innerHTML = "<span class='success'>🎉 성공! 정답입니다.</span><br><div style='font-size:0.85em; font-weight:normal; color:#666; margin-top:8px;'>스태프에게 이 화면을 보여주고<br><b>신보 한정판 굿즈 뽑기</b>를 하세요! 🎁</div>";
             optContainer.style.opacity = "0.5";
         } else {
             resDiv.innerText = `❌ 실패! 정답은 ${cor + 1}번입니다.`;
