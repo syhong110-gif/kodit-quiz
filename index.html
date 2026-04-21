@@ -8,51 +8,6 @@
         body { font-family: 'Pretendard', -apple-system, sans-serif; text-align: center; padding: 30px 20px; background-color: #f4f7fa; color: #333; }
         .quiz-container { background: white; padding: 30px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); display: inline-block; max-width: 500px; width: 100%; box-sizing: border-box; }
         .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
-        .difficulty-badge { padding: 4px 12px; border-radius: 20px; font-size: 0.85em; font-weight: bold; text-transform: uppercase; }
-        
-        /* 난이도별 색상 한글화 반영 */
-        .easy { background: #e8f5e9; color: #2e7d32; }   /* 하: 초록계열 */
-        .medium { background: #fff3e0; color: #ef6c00; } /* 중: 주황계열 */
-        .hard { background: #ffebee; color: #c62828; }   /* 상: 빨강계열 */
-        
-        h2 { color: #005bac; margin: 10px 0; font-size: 1.4em; }
-        .question { font-size: 1.1em; font-weight: 600; margin-bottom: 25px; line-height: 1.6; word-break: keep-all; min-height: 80px; text-align: left; }
-        .btn-group { display: flex; flex-direction: column; gap: 10px; }
-        button { padding: 14px; font-size: 0.95em; cursor: pointer; border: 2px solid #f0f0f0; border-radius: 12px; background: #fff; transition: all 0.2s; font-weight: 500; text-align: left; line-height: 1.4; }
-        button:not(:disabled):hover { background: #f0f7ff; border-color: #005bac; color: #005bac; }
-        button:disabled { cursor: default; opacity: 0.7; }
-        #result { margin-top: 25px; font-weight: bold; font-size: 1.2em; min-height: 1.6em; }
-        .success { color: #28a745; }
-        .failure { color: #dc3545; }
-    </style>
-</head>
-<body>
-
-<div class="quiz-container">
-    <div class="header">
-        <span id="diff-tag" class="difficulty-badge">LEVEL</span>
-        <span style="font-size: 0.8em; color: #999;">KODIT 50th Anniversary</span>
-    </div>
-    <h2>KODIT 퀴즈 챌린지</h2>
-    <div id="quiz-content">
-        <div class="question" id="question-text">문제를 불러오는 중...</div>
-        <div class="btn-group" id="options-container"></div>
-    </div>
-    <div id="result"></div>
-</div>
-
-<script>
-    const quizData = [
-       <!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KODIT 퀴즈 챌린지</title>
-    <style>
-        body { font-family: 'Pretendard', -apple-system, sans-serif; text-align: center; padding: 30px 20px; background-color: #f4f7fa; color: #333; }
-        .quiz-container { background: white; padding: 30px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); display: inline-block; max-width: 500px; width: 100%; box-sizing: border-box; }
-        .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
         .difficulty-badge { padding: 4px 12px; border-radius: 20px; font-size: 0.85em; font-weight: bold; }
         .하 { background: #e8f5e9; color: #2e7d32; }
         .중 { background: #fff3e0; color: #ef6c00; }
@@ -84,7 +39,6 @@
 </div>
 
 <script>
-    // 이미지 파일의 1번부터 30번까지 모든 문항 반영
     const quizData = [
         {"id": 1, "level": "하", "q": "신용보증기금은 2026년 올해로 창립 몇주년일까요?", "options": ["30주년", "40주년", "50주년", "60주년"], "a": 2},
         {"id": 2, "level": "하", "q": "손가락 약속의 손모양에서 착안하여 '신용보증' 업무를 담당하는 캐릭터 이름은?", "options": ["코디", "서피", "포포", "보니"], "a": 0},
@@ -108,7 +62,7 @@
         {"id": 20, "level": "상", "q": "신보가 제공하는 '매출채권보험'의 주요 혜택은?", "options": ["수출 파손 보상", "외상 대금 미회수 손실 보상", "상해보험 지원", "부동산 담보 금리 인하"], "a": 1},
         {"id": 21, "level": "상", "q": "BASA 경영진단 보고서의 구성과 분량에 대한 설명으로 옳은 것은?", "options": ["요약 1페이지", "카드 형태 리포트", "재무제표 10페이지", "약 40페이지 심층 보고서"], "a": 3},
         {"id": 22, "level": "상", "q": "유망 기업을 발굴 및 육성하는 신보의 액셀러레이팅 프로그램 명칭은?", "options": ["스타트업 네스트", "유니콘 캠프", "엔젤 센터", "K-스타 본부"], "a": 0},
-        {"id": 23, "level": "상", "q": "신보와의 실무협의회 개최 대상국인 아닌 나라는?", "options": ["대만", "일본", "폴란드", "미국"], "a": 3},
+        {"id": 23, "level": "상", "q": "신보와의 실무협의회 개최 대상국이 아닌 나라는?", "options": ["대만", "일본", "폴란드", "미국"], "a": 3},
         {"id": 24, "level": "상", "q": "신보가 추진하는 국제협력 활동으로 적절하지 않은 것은?", "options": ["해외기관과 공동연구", "제도전수사업", "해외기업 대출", "국제협의체 정보 교류"], "a": 2},
         {"id": 25, "level": "상", "q": "다음 중 신보와 KSP 사업을 진행한 국가가 아닌 것은?", "options": ["캄보디아", "인도네시아", "온두라스", "태국"], "a": 3},
         {"id": 26, "level": "하", "q": "방송, 공연 등 콘텐츠 제작 기업을 지원하는 보증 프로그램의 명칭은?", "options": ["인프라 보증", "문화산업보증", "녹색 공정전환 보증", "무탄소 에너지보증"], "a": 1},
@@ -164,63 +118,6 @@
             resDiv.innerText = `❌ 실패! 정답은 ${cor + 1}번입니다.`;
             resDiv.className = "failure";
             setTimeout(loadQuiz, 1500); 
-        }
-    }
-
-    window.onload = loadQuiz;
-</script>
-
-</body>
-</html>
-
-    let currentQuestionIndex = -1;
-
-    function loadQuiz() {
-        const resultDiv = document.getElementById('result');
-        const diffTag = document.getElementById('diff-tag');
-        resultDiv.innerText = "";
-        resultDiv.className = "";
-
-        // 완전히 랜덤으로 섞어서 출제
-        let nextIndex;
-        do {
-            nextIndex = Math.floor(Math.random() * quizData.length);
-        } while (nextIndex === currentQuestionIndex);
-        
-        currentQuestionIndex = nextIndex;
-        const currentQuiz = quizData[currentQuestionIndex];
-
-        // 난이도 태그 설정 (텍스트를 한글 '상/중/하'로 변경하여 직관성 향상)
-        diffTag.innerText = `난이도: ${currentQuiz.disp}`;
-        diffTag.className = `difficulty-badge ${currentQuiz.difficulty}`;
-
-        document.getElementById('question-text').innerText = currentQuiz.question;
-        const optionsContainer = document.getElementById('options-container');
-        optionsContainer.innerHTML = "";
-        optionsContainer.style.opacity = "1";
-
-        currentQuiz.options.forEach((opt, index) => {
-            const btn = document.createElement('button');
-            btn.innerText = `${index + 1}. ${opt}`;
-            btn.onclick = () => checkAnswer(index, currentQuiz.answerIndex);
-            optionsContainer.appendChild(btn);
-        });
-    }
-
-    function checkAnswer(selected, correct) {
-        const resultDiv = document.getElementById('result');
-        const optionsContainer = document.getElementById('options-container');
-        const buttons = optionsContainer.querySelectorAll('button');
-        
-        buttons.forEach(btn => btn.disabled = true);
-
-        if (selected === correct) {
-            resultDiv.innerHTML = "<span class='success'>🎉 성공! 정답입니다.</span><div style='font-size:0.85em; font-weight:normal; color:#666; margin-top:8px;'>이제 스태프에게 이 화면을 보여주고 신보 한정판 굿즈 뽑기에 도전하세요!.</div>";
-            optionsContainer.style.opacity = "0.5";
-        } else {
-            resultDiv.innerText = `❌ 실패! 정답은 ${correct + 1}번입니다.`;
-            resultDiv.className = "failure";
-            setTimeout(loadQuiz, 1500); // 1.5초 후 전환
         }
     }
 
