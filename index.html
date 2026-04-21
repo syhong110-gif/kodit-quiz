@@ -43,29 +43,135 @@
 
 <script>
     const quizData = [
-        {"id": 1, "difficulty": "easy", "disp": "하", "question": "신용보증기금은 2026년 올해로 창립 몇 주년을 맞이할까요?", "options": ["30주년", "40주년", "50주년", "60주년"], "answerIndex": 2},
-        {"id": 2, "difficulty": "easy", "disp": "하", "question": "\"약속할게, 너의 밝은 미래를!\"이라는 슬로건과 함께 활기찬 기운으로 신용보증 업무를 담당하는 캐릭터는?", "options": ["코디", "서피", "포포", "보니"], "answerIndex": 0},
-        {"id": 3, "difficulty": "easy", "disp": "하", "question": "스타트업의 성장주기에 맞춘 육성 프로그램을 지원하며, 용기 있게 먼저 도전하는 '퍼스트펭귄'을 상징하는 캐릭터는?", "options": ["든든해", "그링", "보니", "크레용"], "answerIndex": 2},
-        {"id": 4, "difficulty": "easy", "disp": "하", "question": "예측하지 못한 보험사고로부터 기업의 재산을 든든하게 지켜주는 '신용보험' 업무를 담당하는 사자 캐릭터의 이름은?", "options": ["포포", "든든해", "서피", "코디"], "answerIndex": 0},
-        {"id": 5, "difficulty": "easy", "disp": "하", "question": "환경을 최우선으로 생각하며 녹색 기업에 정책 자금을 지원하고 탄소중립 전환을 돕는 ‘그린파이낸싱’ 캐릭터의 이름은?", "options": ["그링", "보니", "크레용", "서피"], "answerIndex": 0},
-        {"id": 6, "difficulty": "easy", "disp": "하", "question": "똑똑한 문어 컨설턴트로서 멀티태스킹 능력을 발휘해 기업에 다양한 경영지원 서비스를 제공하는 캐릭터는?", "options": ["코디", "포포", "든든해", "서피"], "answerIndex": 3},
-        {"id": 7, "difficulty": "easy", "disp": "하", "question": "듬직하고 포근한 비버의 모습으로 안정적인 도로·철도 등 사회기반시설 조성을 돕는 '산업기반 신용보증' 담당 캐릭터는?", "options": ["포포", "그링", "보니", "든든해"], "answerIndex": 0},
-        {"id": 8, "difficulty": "easy", "disp": "하", "question": "기업의 꿈을 알록달록하게 그려주는 신용보증기금의 메인 마스코트이자 드래곤 캐릭터의 이름은 무엇인가요?", "options": ["크레용", "코디", "서피", "그링"], "answerIndex": 0},
-        {"id": 9, "difficulty": "medium", "disp": "중", "question": "담보 능력이 부족한 기업이 금융기관으로부터 자금을 원활하게 조달할 수 있도록 신보가 제공하는 가장 핵심적인 제도는?", "options": ["신용보증", "경영컨설팅", "인프라보증", "매출채권보험"], "answerIndex": 0},
-        {"id": 10, "difficulty": "medium", "disp": "중", "question": "외상 거래 후 대금을 못 받을 경우 발생하는 손실을 보상하여 연쇄 부도를 방지하는 안전망 역할의 사업은?", "options": ["매출채권보험", "녹색 금융", "직접 투자", "인프라보증"], "answerIndex": 0},
-        {"id": 11, "difficulty": "medium", "disp": "중", "question": "신보가 유망 창업기업 중 위험을 무릅쓰고 창의적인 아이디어로 도전하는 기업을 위해 만든 대표 브랜드는?", "options": ["퍼스트펭귄", "스마트펭귄", "혁신아이콘", "프리아이콘"], "answerIndex": 0},
-        {"id": 12, "difficulty": "medium", "disp": "중", "question": "과거 1~2주가 걸리던 정밀 신용평가를 30분 이내로 단축시킨 신보의 AI 기업 진단 시스템 명칭은?", "options": ["BASA", "BADA", "K-DATA", "AI-Credit"], "answerIndex": 0},
-        {"id": 13, "difficulty": "medium", "disp": "중", "question": "유니콘 기업으로 도약할 가능성이 높은 고성장 기업을 선정하여 최대 200억 원의 보증을 지원하는 프로그램은?", "options": ["혁신아이콘", "스타트업 네스트", "퍼스트펭귄", "글로벌 점프업"], "answerIndex": 0},
-        {"id": 14, "difficulty": "medium", "disp": "중", "question": "BASA 시스템이 제공하는 약 40페이지 분량의 심층 경영진단 보고서를 확인하는 데 걸리는 시간은?", "options": ["실시간 (1초)", "30분 이내", "24시간", "1주일"], "answerIndex": 1},
-        {"id": 15, "difficulty": "medium", "disp": "중", "question": "신용보증기금이 기업의 탄소중립 실천과 ESG 경영을 돕기 위해 운영하는 특화 보증은?", "options": ["녹색보증", "인프라보증", "문화콘텐츠보증", "브릿지보증"], "answerIndex": 0},
-        {"id": 16, "difficulty": "medium", "disp": "중", "question": "신보의 보증 서비스를 이용할 때 기업이 얻을 수 있는 장점에 대한 설명으로 적절하지 않은 것은?", "options": ["개인 책임 강화", "담보문제 해소", "금융비용 절감", "대외신용도 제고"], "answerIndex": 0},
-        {"id": 17, "difficulty": "medium", "disp": "중", "question": "BASA 시스템이 제공하는 경영진단보고서의 특징이 아닌 것은 무엇인가요?", "options": ["어려운 금융 용어 대신 쉬운 설명 사용", "시각화된 그래프 활용", "고액의 유료 서비스로 제공", "실시간에 가까운 위험 포착"], "answerIndex": 2},
-        {"id": 18, "difficulty": "medium", "disp": "중", "question": "신보가 우리 중소·벤처 기업의 유럽 시장 진출을 현지에서 돕기 위해 올해 5월 개소한 곳은?", "options": ["유럽지원센터", "아세안지원센터", "북미지원센터", "글로벌 본부"], "answerIndex": 0},
-        {"id": 19, "difficulty": "hard", "disp": "상", "question": "신보가 아시아 신용보증기관들과의 협력을 위해 창설 멤버로 참여하고 있는 연합의 명칭은 무엇인가요?", "options": ["ACSIC", "OECD", "IMF", "ASEAN Center"], "answerIndex": 0},
-        {"id": 20, "difficulty": "hard", "disp": "상", "question": "신보가 제공하는 '매출채권보험'의 주요 혜택은 무엇인가요?", "options": ["수출 물품의 파손에 대한 보상", "외상 거래 후 대금을 못 받을 경우 발생하는 손실 보상", "기업 임직원의 상해보험료 지원", "부동산 담보 대출의 금리 인하"], "answerIndex": 1},
-        {"id": 21, "difficulty": "hard", "disp": "상", "question": "BASA 경영진단 보고서의 구성과 분량에 대한 설명으로 옳은 것은 무엇인가요?", "options": ["핵심 수치만 요약한 1페이지 결과지", "신용등급만 표시된 카드 형태의 리포트", "재무제표만 포함된 10페이지 분량 보고서", "약 40페이지 분량의 심층 경영분석 보고서"], "answerIndex": 3},
-        {"id": 22, "difficulty": "hard", "disp": "상", "question": "신보가 유망 기업을 직접 발굴하여 육성하는 액셀러레이팅 프로그램의 명칭은?", "options": ["스타트업 네스트", "유니콘 캠프", "엔젤 센터", "K-스타 본부"], "answerIndex": 0}
+       <!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KODIT 퀴즈 챌린지</title>
+    <style>
+        body { font-family: 'Pretendard', -apple-system, sans-serif; text-align: center; padding: 30px 20px; background-color: #f4f7fa; color: #333; }
+        .quiz-container { background: white; padding: 30px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); display: inline-block; max-width: 500px; width: 100%; box-sizing: border-box; }
+        .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+        .difficulty-badge { padding: 4px 12px; border-radius: 20px; font-size: 0.85em; font-weight: bold; }
+        .하 { background: #e8f5e9; color: #2e7d32; }
+        .중 { background: #fff3e0; color: #ef6c00; }
+        .상 { background: #ffebee; color: #c62828; }
+        h2 { color: #005bac; margin: 10px 0; font-size: 1.4em; }
+        .question { font-size: 1.1em; font-weight: 600; margin-bottom: 25px; line-height: 1.6; word-break: keep-all; min-height: 80px; text-align: left; }
+        .btn-group { display: flex; flex-direction: column; gap: 10px; }
+        button { padding: 14px; font-size: 0.9em; cursor: pointer; border: 2px solid #f0f0f0; border-radius: 12px; background: #fff; transition: all 0.2s; font-weight: 500; text-align: left; line-height: 1.4; }
+        button:not(:disabled):hover { background: #f0f7ff; border-color: #005bac; color: #005bac; }
+        button:disabled { cursor: default; opacity: 0.7; }
+        #result { margin-top: 25px; font-weight: bold; font-size: 1.1em; min-height: 1.6em; line-height: 1.5; }
+        .success { color: #28a745; }
+        .failure { color: #dc3545; }
+    </style>
+</head>
+<body>
+
+<div class="quiz-container">
+    <div class="header">
+        <span id="diff-tag" class="difficulty-badge">난이도</span>
+        <span style="font-size: 0.8em; color: #999;">KODIT 50th Anniversary</span>
+    </div>
+    <h2>KODIT 퀴즈 챌린지</h2>
+    <div id="quiz-content">
+        <div class="question" id="question-text">문제를 불러오는 중...</div>
+        <div class="btn-group" id="options-container"></div>
+    </div>
+    <div id="result"></div>
+</div>
+
+<script>
+    // 이미지 파일의 1번부터 30번까지 모든 문항 반영
+    const quizData = [
+        {"id": 1, "level": "하", "q": "신용보증기금은 2026년 올해로 창립 몇주년일까요?", "options": ["30주년", "40주년", "50주년", "60주년"], "a": 2},
+        {"id": 2, "level": "하", "q": "손가락 약속의 손모양에서 착안하여 '신용보증' 업무를 담당하는 캐릭터 이름은?", "options": ["코디", "서피", "포포", "보니"], "a": 0},
+        {"id": 3, "level": "하", "q": "스타트업의 성장주기에 맞춘 육성 프로그램을 지원하며, '퍼스트펭귄'을 상징하는 캐릭터는?", "options": ["든든해", "그링", "보니", "크레용"], "a": 2},
+        {"id": 4, "level": "하", "q": "예측하지 못한 보험사고로부터 기업의 재산을 지켜주는 '신용보험' 담당 캐릭터는?", "options": ["포포", "든든해", "서피", "코디"], "a": 0},
+        {"id": 5, "level": "하", "q": "녹색 기업에 정책 자금을 지원하고 탄소중립 전환을 돕는 ‘그린파이낸싱’ 캐릭터는?", "options": ["그링", "보니", "크레용", "서피"], "a": 0},
+        {"id": 6, "level": "하", "q": "멀티태스킹 능력을 발휘해 기업에 경영지원 서비스를 제공하는 문어 컨설턴트 캐릭터는?", "options": ["코디", "포포", "든든해", "서피"], "a": 3},
+        {"id": 7, "level": "하", "q": "듬직하고 포근한 비버의 모습으로 사회기반시설 조성을 돕는 캐릭터는?", "options": ["포포", "그링", "보니", "든든해"], "a": 3},
+        {"id": 8, "level": "하", "q": "기업의 꿈을 알록달록하게 그려주는 신보의 메인 마스코트이자 드래곤 캐릭터는?", "options": ["크레용", "코디", "서피", "그링"], "a": 0},
+        {"id": 9, "level": "중", "q": "담보 능력이 부족한 기업이 금융기관으로부터 자금을 조달할 수 있도록 돕는 핵심 제도는?", "options": ["신용보증", "경영컨설팅", "인프라보증", "매출채권보험"], "a": 0},
+        {"id": 10, "level": "중", "q": "외상 거래 후 대금을 못 받을 경우 발생하는 손실을 보상하는 안전망 사업은?", "options": ["매출채권보험", "녹색 금융", "직접 투자", "인프라보증"], "a": 0},
+        {"id": 11, "level": "중", "q": "창업 5년 이내의 혁신 스타트업을 지원하는 신보의 대표적인 제도 명칭은?", "options": ["퍼스트펭귄", "스마트펭귄", "혁신아이콘", "프리아이콘"], "a": 0},
+        {"id": 12, "level": "중", "q": "정밀 신용평가를 30분 이내로 단축시킨 신보의 AI 기업 진단 시스템 명칭은?", "options": ["BASA", "BADA", "K-DATA", "AI-Credit"], "a": 0},
+        {"id": 13, "level": "중", "q": "고성장 기업에 최대 200억 원의 보증을 지원하는 프로그램은?", "options": ["혁신아이콘", "스타트업 네스트", "퍼스트펭귄", "글로벌 점프업"], "a": 0},
+        {"id": 14, "level": "중", "q": "BASA 시스템의 심층 경영진단 보고서를 생성하는 데 걸리는 시간은?", "options": ["실시간(1초)", "30분 이내", "24시간", "1주일"], "a": 1},
+        {"id": 15, "level": "중", "q": "탄소중립 실천과 ESG 경영을 돕기 위해 운영하는 특화 보증은?", "options": ["녹색보증", "인프라보증", "문화콘텐츠보증", "브릿지보증"], "a": 0},
+        {"id": 16, "level": "중", "q": "신보 보증 서비스 이용 시 기업이 얻는 장점으로 적절하지 않은 것은?", "options": ["개인 책임 강화", "담보문제 해소", "금융비용 절감", "대외신용도 제고"], "a": 0},
+        {"id": 17, "level": "중", "q": "BASA 시스템 경영진단보고서의 특징이 아닌 것은?", "options": ["쉬운 설명 사용", "시각화 그래프", "고액 유료 서비스", "실시간 위험 포착"], "a": 2},
+        {"id": 18, "level": "중", "q": "신보가 기업의 유럽 시장 진출을 현지에서 돕기 위해 올해 5월 개소한 곳은?", "options": ["유럽지원센터", "아세안지원센터", "북미지원센터", "글로벌 본부"], "a": 0},
+        {"id": 19, "level": "상", "q": "아시아 신용보증기관 연합의 창설 멤버로 참여하고 있으며, 제34차 총회를 개최했던 연합은?", "options": ["ACSIC", "OECD", "IMF", "ASEAN Center"], "a": 0},
+        {"id": 20, "level": "상", "q": "신보가 제공하는 '매출채권보험'의 주요 혜택은?", "options": ["수출 파손 보상", "외상 대금 미회수 손실 보상", "상해보험 지원", "부동산 담보 금리 인하"], "a": 1},
+        {"id": 21, "level": "상", "q": "BASA 경영진단 보고서의 구성과 분량에 대한 설명으로 옳은 것은?", "options": ["요약 1페이지", "카드 형태 리포트", "재무제표 10페이지", "약 40페이지 심층 보고서"], "a": 3},
+        {"id": 22, "level": "상", "q": "유망 기업을 발굴 및 육성하는 신보의 액셀러레이팅 프로그램 명칭은?", "options": ["스타트업 네스트", "유니콘 캠프", "엔젤 센터", "K-스타 본부"], "a": 0},
+        {"id": 23, "level": "상", "q": "신보와의 실무협의회 개최 대상국인 아닌 나라는?", "options": ["대만", "일본", "폴란드", "미국"], "a": 3},
+        {"id": 24, "level": "상", "q": "신보가 추진하는 국제협력 활동으로 적절하지 않은 것은?", "options": ["해외기관과 공동연구", "제도전수사업", "해외기업 대출", "국제협의체 정보 교류"], "a": 2},
+        {"id": 25, "level": "상", "q": "다음 중 신보와 KSP 사업을 진행한 국가가 아닌 것은?", "options": ["캄보디아", "인도네시아", "온두라스", "태국"], "a": 3},
+        {"id": 26, "level": "하", "q": "방송, 공연 등 콘텐츠 제작 기업을 지원하는 보증 프로그램의 명칭은?", "options": ["인프라 보증", "문화산업보증", "녹색 공정전환 보증", "무탄소 에너지보증"], "a": 1},
+        {"id": 27, "level": "상", "q": "일시적 경영애로 및 부실징후 가능성 기업을 보증하는 프로그램은?", "options": ["빌드업프로그램", "밸류업프로그램", "재도전지원 프로그램", "재창업지원 특례보증"], "a": 0},
+        {"id": 28, "level": "상", "q": "다음 중 신보가 운영하는 민간투자유치플랫폼은?", "options": ["Investment Link", "Startup Connect", "U-Connect", "Venture Bridge"], "a": 2},
+        {"id": 29, "level": "상", "q": "신보 및 유관기관의 기업지원 사업, 상품 등을 연결한 맞춤형 원스톱 서비스는?", "options": ["Business Hub", "Innovation 1", "One-Stop Service", "KODIT Support Platform"], "a": 1},
+        {"id": 30, "level": "상", "q": "다음 중 BASA가 제공하는 서비스가 아닌 것은?", "options": ["AI 경영진단 서비스", "기업정보조회 서비스", "기업통계 서비스", "기업대출 자동승인 서비스"], "a": 3}
     ];
+
+    let currentIndex = -1;
+
+    function loadQuiz() {
+        const resDiv = document.getElementById('result');
+        const diffTag = document.getElementById('diff-tag');
+        resDiv.innerText = "";
+        resDiv.className = "";
+
+        let nextIdx;
+        do {
+            nextIdx = Math.floor(Math.random() * quizData.length);
+        } while (nextIdx === currentIndex);
+        
+        currentIndex = nextIdx;
+        const cur = quizData[currentIndex];
+
+        diffTag.innerText = `난이도: ${cur.level}`;
+        diffTag.className = `difficulty-badge ${cur.level}`;
+
+        document.getElementById('question-text').innerText = cur.q;
+        const optContainer = document.getElementById('options-container');
+        optContainer.innerHTML = "";
+        optContainer.style.opacity = "1";
+
+        cur.options.forEach((opt, i) => {
+            const btn = document.createElement('button');
+            btn.innerText = `${i + 1}. ${opt}`;
+            btn.onclick = () => check(i, cur.a);
+            optContainer.appendChild(btn);
+        });
+    }
+
+    function check(sel, cor) {
+        const resDiv = document.getElementById('result');
+        const optContainer = document.getElementById('options-container');
+        const btns = optContainer.querySelectorAll('button');
+        
+        btns.forEach(b => b.disabled = true);
+
+        if (sel === cor) {
+            resDiv.innerHTML = "<span class='success'>🎉 성공! 정답입니다.</span><br><div style='font-size:0.85em; font-weight:normal; color:#666; margin-top:8px;'>스태프에게 코인을 받은 후<br><b>신보 한정판 굿즈 뽑기</b>를 하세요! 🎁</div>";
+            optContainer.style.opacity = "0.5";
+        } else {
+            resDiv.innerText = `❌ 실패! 정답은 ${cor + 1}번입니다.`;
+            resDiv.className = "failure";
+            setTimeout(loadQuiz, 1500); 
+        }
+    }
+
+    window.onload = loadQuiz;
+</script>
+
+</body>
+</html>
 
     let currentQuestionIndex = -1;
 
