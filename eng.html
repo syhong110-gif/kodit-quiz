@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KODIT Quiz Challenge</title>
+    <style>
+        body { font-family: 'Pretendard', -apple-system, sans-serif; text-align: center; padding: 30px 20px; background-color: #f4f7fa; color: #333; }
+        .quiz-container { background: white; padding: 30px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); display: inline-block; max-width: 500px; width: 100%; box-sizing: border-box; }
+        .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+        .difficulty-badge { padding: 4px 12px; border-radius: 20px; font-size: 0.85em; font-weight: bold; }
+        .Easy { background: #e8f5e9; color: #2e7d32; }
+        .Medium { background: #fff3e0; color: #ef6c00; }
+        .Hard { background: #ffebee; color: #c62828; }
+        h2 { color: #005bac; margin: 10px 0; font-size: 1.4em; }
+        .question { font-size: 1.1em; font-weight: 600; margin-bottom: 25px; line-height: 1.6; word-break: keep-all; min-height: 80px; text-align: left; }
+        .btn-group { display: flex; flex-direction: column; gap: 10px; }
+        button { padding: 14px; font-size: 0.9em; cursor: pointer; border: 2px solid #f0f0f0; border-radius: 12px; background: #fff; transition: all 0.2s; font-weight: 500; text-align: left; line-height: 1.4; }
+        button:not(:disabled):hover { background: #f0f7ff; border-color: #005bac; color: #005bac; }
+        button:disabled { cursor: default; opacity: 0.7; }
+        #result { margin-top: 25px; font-weight: bold; font-size: 1.1em; min-height: 1.6em; line-height: 1.5; }
+        .success { color: #28a745; }
+        .failure { color: #dc3545; }
+    </style>
+</head>
+<body>
+
+<div class="quiz-container">
+    <div class="header">
+        <span id="diff-tag" class="difficulty-badge">Level</span>
+        <span style="font-size: 0.8em; color: #999;">KODIT 50th Anniversary</span>
+    </div>
+    <h2>KODIT Quiz Challenge</h2>
+    <div id="quiz-content">
+        <div class="question" id="question-text">Loading question...</div>
+        <div class="btn-group" id="options-container"></div>
+    </div>
+    <div id="result"></div>
+</div>
+
+<script>
+    const quizData = [
+        {"id": 1, "level": "Easy", "q": "In 2026, which anniversary is KODIT celebrating since its foundation?", "options": ["30th", "40th", "50th", "60th"], "a": 2},
+        {"id": 2, "level": "Easy", "q": "Which character, whose ears are shaped like a 'pinky promise,' is in charge of Credit Guarantees?", "options": ["KODY", "SURFY", "POPO", "BONI"], "a": 0},
+        {"id": 3, "level": "Easy", "q": "Which character represents the 'First Penguin' and supports startup growth programs?", "options": ["DEUNDEUNHAE", "GRING", "BONI", "CRAYON"], "a": 2},
+        {"id": 4, "level": "Easy", "q": "Which character protects enterprise assets from unexpected insurance accidents?", "options": ["POPO", "DEUNDEUNHAE", "SURFY", "KODY"], "a": 0},
+        {"id": 5, "level": "Easy", "q": "Which character, 'GRING,' supports Green Financing and helps transition to carbon neutrality?", "options": ["GRING", "BONI", "CRAYON", "SURFY"], "a": 0},
+        {"id": 6, "level": "Easy", "q": "Who is the octopus consultant character providing management support services to enterprises?", "options": ["KODY", "POPO", "DEUNDEUNHAE", "SURFY"], "a": 3},
+        {"id": 7, "level": "Easy", "q": "Which reliable beaver character helps with the creation of social infrastructure?", "options": ["POPO", "GRING", "BONI", "DEUNDEUNHAE"], "a": 3},
+        {"id": 8, "level": "Easy", "q": "Who is KODIT's main dragon mascot that 'colors' the dreams of enterprises?", "options": ["CRAYON", "KODY", "SURFY", "GRING"], "a": 0},
+        {"id": 9, "level": "Easy", "q": "What is KODIT's core service that helps businesses without collateral obtain loans from banks?", "options": ["Credit Guarantee", "Management Consulting", "Infrastructure Guarantee", "Credit Insurance"], "a": 0},
+        {"id": 10, "level": "Easy", "q": "What is the name of KODIT's AI-based enterprise diagnosis system that shortens evaluation time to under 30 mins?", "options": ["BASA", "BADA", "K-DATA", "AI-Credit"], "a": 0}
+    ];
+
+    let currentIndex = -1;
+
+    function loadQuiz() {
+        const resDiv = document.getElementById('result');
+        const diffTag = document.getElementById('diff-tag');
+        resDiv.innerText = "";
+        resDiv.className = "";
+
+        let nextIdx;
+        do {
+            nextIdx = Math.floor(Math.random() * quizData.length);
+        } while (nextIdx === currentIndex);
+        
+        currentIndex = nextIdx;
+        const cur = quizData[currentIndex];
+
+        diffTag.innerText = `Level: ${cur.level}`;
+        diffTag.className = `difficulty-badge ${cur.level}`;
+
+        document.getElementById('question-text').innerText = cur.q;
+        const optContainer = document.getElementById('options-container');
+        optContainer.innerHTML = "";
+        optContainer.style.opacity = "1";
+
+        cur.options.forEach((opt, i) => {
+            const btn = document.createElement('button');
+            btn.innerText = `${i + 1}. ${opt}`;
+            btn.onclick = () => check(i, cur.a);
+            optContainer.appendChild(btn);
+        });
+    }
+
+    function check(sel, cor) {
+        const resDiv = document.getElementById('result');
+        const optContainer = document.getElementById('options-container');
+        const btns = optContainer.querySelectorAll('button');
+        
+        btns.forEach(b => b.disabled = true);
+
+        if (sel === cor) {
+            resDiv.innerHTML = "<span class='success'>🎉 Success! That's correct.</span><br><div style='font-size:0.85em; font-weight:normal; color:#666; margin-top:8px;'>Show this screen to the staff to get<br><b>KODIT Limited Edition Goods!</b> 🎁</div>";
+            optContainer.style.opacity = "0.5";
+        } else {
+            resDiv.innerText = `❌ Incorrect! The answer is #${cor + 1}.`;
+            resDiv.className = "failure";
+            setTimeout(loadQuiz, 1500); 
+        }
+    }
+
+    window.onload = loadQuiz;
+</script>
+
+</body>
+</html>
