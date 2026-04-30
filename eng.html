@@ -10,8 +10,6 @@
         .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
         .difficulty-badge { padding: 4px 12px; border-radius: 20px; font-size: 0.85em; font-weight: bold; }
         .Easy { background: #e8f5e9; color: #2e7d32; }
-        .Medium { background: #fff3e0; color: #ef6c00; }
-        .Hard { background: #ffebee; color: #c62828; }
         h2 { color: #005bac; margin: 10px 0; font-size: 1.4em; }
         .question { font-size: 1.1em; font-weight: 600; margin-bottom: 25px; line-height: 1.6; word-break: keep-all; min-height: 80px; text-align: left; }
         .btn-group { display: flex; flex-direction: column; gap: 10px; }
@@ -40,16 +38,16 @@
 
 <script>
     const quizData = [
-        {"id": 1, "level": "Easy", "q": "In 2026, which anniversary is KODIT celebrating since its foundation?", "options": ["30th", "40th", "50th", "60th"], "a": 2},
-        {"id": 2, "level": "Easy", "q": "Which character, whose ears are shaped like a 'pinky promise,' is in charge of Credit Guarantees?", "options": ["KODY", "SURFY", "POPO", "BONI"], "a": 0},
-        {"id": 3, "level": "Easy", "q": "Which character represents the 'First Penguin' and supports startup growth programs?", "options": ["DEUNDEUNHAE", "GRING", "BONI", "CRAYON"], "a": 2},
-        {"id": 4, "level": "Easy", "q": "Which character protects enterprise assets from unexpected insurance accidents?", "options": ["POPO", "DEUNDEUNHAE", "SURFY", "KODY"], "a": 0},
-        {"id": 5, "level": "Easy", "q": "Which character, 'GRING,' supports Green Financing and helps transition to carbon neutrality?", "options": ["GRING", "BONI", "CRAYON", "SURFY"], "a": 0},
-        {"id": 6, "level": "Easy", "q": "Who is the octopus consultant character providing management support services to enterprises?", "options": ["KODY", "POPO", "DEUNDEUNHAE", "SURFY"], "a": 3},
-        {"id": 7, "level": "Easy", "q": "Which reliable beaver character helps with the creation of social infrastructure?", "options": ["POPO", "GRING", "BONI", "DEUNDEUNHAE"], "a": 3},
-        {"id": 8, "level": "Easy", "q": "Who is KODIT's main dragon mascot that 'colors' the dreams of enterprises?", "options": ["CRAYON", "KODY", "SURFY", "GRING"], "a": 0},
-        {"id": 9, "level": "Easy", "q": "What is KODIT's core service that helps businesses without collateral obtain loans from banks?", "options": ["Credit Guarantee", "Management Consulting", "Infrastructure Guarantee", "Credit Insurance"], "a": 0},
-        {"id": 10, "level": "Easy", "q": "What is the name of KODIT's AI-based enterprise diagnosis system that shortens evaluation time to under 30 mins?", "options": ["BASA", "BADA", "K-DATA", "AI-Credit"], "a": 0}
+        {"id": 1, "level": "Easy", "q": "In 2026, which anniversary is KODIT celebrating since its founding?", "options": ["30th", "40th", "50th", "60th"], "a": 2},
+        {"id": 2, "level": "Easy", "q": "Which character has ears shaped like a “pinky promise” and is responsible for Credit Guarantees?", "options": ["KODI", "SURFY", "POPO", "BONNIE"], "a": 0},
+        {"id": 3, "level": "Easy", "q": "Which character represents the “First Penguin” and supports start‑up growth programs?", "options": ["DEUNDEUNHAE", "GREENG", "BONNIE", "CREYON"], "a": 2},
+        {"id": 4, "level": "Easy", "q": "Which character provides credit insurance to protect businesses when buyers fail to pay?", "options": ["POPO", "DEUNDEUNHAE", "SURFY", "KODI"], "a": 0},
+        {"id": 5, "level": "Easy", "q": "Which character supports Green Financing and helps drive the transition to carbon neutrality?", "options": ["GREENG", "BONNIE", "CREYON", "SURFY"], "a": 0},
+        {"id": 6, "level": "Easy", "q": "Which character is the smart octopus consultant that provides management support services to companies?", "options": ["KODI", "POPO", "DEUNDEUNHAE", "SURFY"], "a": 3},
+        {"id": 7, "level": "Easy", "q": "Which character is the reliable beaver that helps create stable social infrastructure?", "options": ["POPO", "GREENG", "BONNIE", "DEUNDEUNHAE"], "a": 3},
+        {"id": 8, "level": "Easy", "q": "Which character is KODIT’s main dragon mascot that “colors” the dreams of businesses?", "options": ["CREYON", "KODI", "SURFY", "GREENG"], "a": 0},
+        {"id": 9, "level": "Easy", "q": "What is KODIT’s core service that helps businesses without collateral obtain bank loans?", "options": ["Credit Guarantee", "Management Consulting", "Infrastructure Guarantee", "Credit Insurance"], "a": 0},
+        {"id": 10, "level": "Easy", "q": "What is the name of KODIT’s AI‑based enterprise diagnosis system that reduces evaluation time to under 30 minutes?", "options": ["BASA", "BADA", "K‑DATA", "AI‑Credit"], "a": 0}
     ];
 
     let currentIndex = -1;
